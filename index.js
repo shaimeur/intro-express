@@ -12,7 +12,28 @@ app.get('/', (req, res) => {
     res.send("hello world!");
 });
 
-app.use('/api/v1/tasks', taskRouter);
+// middleware
+
+
+
+app.get('/api/v1/tasks', (req, res,next) => {
+    console.log('hello from the middleware');
+    next();
+})
+
+// app.param('val',(req,res,next,val)=>{
+//     console.log(val)
+//     next();
+// })
+
+app.get('/api/v1/tasks', (req, res,next) => {
+    req.responseTime = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+    console.log("the time is :",req.responseTime)
+    next();
+})
+
+
+app.use('/api/v1/tasks',taskRouter);
 
 
 

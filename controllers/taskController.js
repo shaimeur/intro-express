@@ -1,6 +1,16 @@
 const fs  = require("fs")
 
+// param middle ware
 
+
+const checkParam = (req,res,next,val)=>{
+
+    console.log(val)
+
+
+    next()
+
+}
 
 const getAllTasks =  (req,res)=>{
     //  console.log(req)
@@ -13,16 +23,14 @@ const getAllTasks =  (req,res)=>{
 
             res.status(200).json({
                 data : JSON.parse(data)
-        })})
-        console.log('===>')
-    } catch (error) {
-        console.log(error)
+            })})
+            console.log('===>')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
-}
-
 const  getOneTask = (req,res)=>{
-    console.log(typeof +req.params.id)
     const id = +req.params.id
     fs.readFile(`${__dirname}/../task.json`,(err,data)=>{
         if(err) return err
@@ -87,4 +95,4 @@ fs.readFile(`${__dirname}/../task.json`,(err,data)=>{
 
 }
 
-module.exports = {deleteTask,getAllTasks,updateTask,getOneTask,createTask}
+module.exports = {deleteTask,getAllTasks,updateTask,getOneTask,createTask ,checkParam}

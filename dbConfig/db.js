@@ -9,8 +9,8 @@ const DB = process.env.DATABASE.replace('<PASSWORD>',process.env.DATABASE_PASSWO
 const dbConnection =  async ()=>{
     try {
       await  mongoose.connect(DB,{
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true
         })
     console.log('the database is connected')
 

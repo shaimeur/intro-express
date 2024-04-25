@@ -16,6 +16,8 @@ const checkParam = (req,res,next,val)=>{
 
 const getAllTasks =  (req,res)=>{
     //  console.log(req)
+
+
     try {
         console.log('===>')
         fs.readFile(`${__dirname}/../task.json`,(err,data)=>{

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const taskRouter = require('./router/taskRouter.js');
+const authRouter = require("./router/authRouter.js");
 
 
 app.use(express.json());
@@ -34,6 +35,7 @@ app.get('/api/v1/tasks', (req, res,next) => {
 
 
 app.use('/api/v1/tasks',taskRouter);
+app.use('/api/v1/auth',authRouter);
 
 
 

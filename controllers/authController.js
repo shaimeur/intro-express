@@ -41,8 +41,11 @@ const login = async(req,res)=>{
             })
         }
         console.log("37",loggedInUser)
+
+        const token = jwt.sign({data: email},"secret",{expiresIn:"1h"})
         res.status(200).json({
-            message : "user logged in with success!!"
+            message : "user logged in with success!!",
+            token
         })
     } catch (error) {
         console.log(error)

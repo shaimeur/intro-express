@@ -189,7 +189,8 @@ const deleteTask = async (req,res)=>{
     } catch (error) {
         res.status(500).json({
             status : 'fail',
-            message : "task not found"
+            message : "task not found",
+            deletedTask
         })
     }
 
